@@ -11,6 +11,7 @@
       <th scope="col">EDIT</th>
       <th scope="col">SHOW</th>
       <th scope="col">DESTROY</th>
+      <th scope="col">Category_id</th>
 
     </tr>
   </thead>
@@ -21,16 +22,20 @@
         <td>{{$elem->id}}</td>
       <td>{{$elem->title}}</td>
       <td>{{$elem->body}}</td>
+
       <td><a href="{{route('admin.posts.edit', $elem->id)}}"><i class="fa-solid fa-pen-to-square"></i></a></td>
       <td><a href="{{route('admin.posts.show', $elem->id)}}"><i class="fa-solid fa-eye"></i></a></td>
       <td>
-        <form action="{{route('admin.posts.destroy',$elem->id)}}" method="POST">
-        @csrf
-        @method('DELETE')
-        <button type="submit"><i class="fa-solid fa-trash-can text-danger"></i></button>
-        </form>
+          <form action="{{route('admin.posts.destroy',$elem->id)}}" method="POST">
+              @csrf
+              @method('DELETE')
+              <button type="submit"><i class="fa-solid fa-trash-can text-danger"></i></button>
+            </form>
 
         </a></td>
+        <td>
+            {{$elem->category->name ?? null}}
+        </td>
 
     </tr>
     @endforeach

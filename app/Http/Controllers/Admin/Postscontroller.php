@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Models\Post;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class Postscontroller extends Controller
      */
     public function index()
     {
-        $data=Post::paginate(8);
+        $data=Post::with('category')->paginate(8);
         return view('admin.post.index',compact('data'));
     }
 
@@ -25,7 +26,8 @@ class Postscontroller extends Controller
      */
     public function create()
     {
-        return view('admin.post.create');
+        $datas= Category::All();
+        return view('admin.post.create',compact('datas'));
     }
 
     /**
@@ -45,6 +47,7 @@ class Postscontroller extends Controller
         $newpost= new Post();
         $newpost->title=$datas['title'];
         $newpost->body=$datas['body'];
+        $newpost->category_id=$datas['category_id'];
         $newpost->save();
         return redirect()->route('admin.posts.index');
     }

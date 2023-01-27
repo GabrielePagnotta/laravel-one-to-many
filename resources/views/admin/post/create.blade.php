@@ -12,6 +12,14 @@
             inserisci un titolo
         </label>
         <input class="form-control" type="text" name="title">
+        <label>inserisci la categoria</label>
+        <select class="form-control" name="category_id">
+            <option value="">---</option>
+            @foreach ($datas as $elem )
+                <option value="{{$elem->id}}">{{$elem->name}}</option>
+            @endforeach
+
+        </select>
         @error('title')
             <div class="alert alert-danger">
                 <p>è obbligatorio compilare questo campo</p>
