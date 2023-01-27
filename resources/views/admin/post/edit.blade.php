@@ -27,5 +27,14 @@
         </div>
     @enderror
         <button class="btn btn-success my-3"type="submit">Modifica</button>
+
+        <div class="my-3 mx-3">
+            @foreach ($tags as $elem)
+            <label >
+                <input type="checkbox" name="tags[]" value="{{$elem->id}}" {{$data->tags->contains($elem) ? 'checked': ''}}>
+                {{$elem->name}}
+            </label>
+            @endforeach
+        </div>
     </form>
 @endsection

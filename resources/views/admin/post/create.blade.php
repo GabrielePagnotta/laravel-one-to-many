@@ -18,6 +18,12 @@
             @foreach ($datas as $elem )
                 <option value="{{$elem->id}}">{{$elem->name}}</option>
             @endforeach
+            @foreach ($tags as $elem )
+                <label>
+                    <input type="checkbox" name="tags[]" value="{{$elem->id}}">
+                    {{$elem->name}}
+                </label>
+            @endforeach
 
         </select>
         @error('title')
