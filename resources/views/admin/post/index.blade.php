@@ -34,7 +34,8 @@
 
         </a></td>
         <td>
-            {{$elem->category->name ?? null}}
+
+            {{$elem->category['name'] ?? null}}
         </td>
 
     </tr>

@@ -115,6 +115,7 @@ class Postscontroller extends Controller
     public function destroy($id)
     {
         $destroy= Post::findOrFail($id);
+        $destroy->tags()->sync([]);
         $destroy->delete();
 
         return redirect()->route('admin.posts.index');

@@ -30,7 +30,7 @@
 
         <div class="my-3 mx-3">
             @foreach ($tags as $elem)
-            <label >
+            <label>
                 <input type="checkbox" name="tags[]" value="{{$elem->id}}" {{$data->tags->contains($elem) ? 'checked': ''}}>
                 {{$elem->name}}
             </label>
