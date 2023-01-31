@@ -20,4 +20,4 @@
         </div>
     </div>
 </div>
-@endsectiond
+@endsection
